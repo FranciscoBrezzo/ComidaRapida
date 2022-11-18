@@ -9,5 +9,5 @@ def status(request):
     return HttpResponse('I am the status view')
 
 def signin(request):
-    return render(request, "authentication/signin.html")
+    return render(request, "FastFoodApp/signin.html")
 
