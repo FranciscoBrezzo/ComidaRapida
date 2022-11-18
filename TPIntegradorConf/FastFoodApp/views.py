@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def order(request):
-    return HttpResponse('I am the order view')
+    return render(request,'FastFoodApp/base.html')
 
 def status(request):
     return HttpResponse('I am the status view')
