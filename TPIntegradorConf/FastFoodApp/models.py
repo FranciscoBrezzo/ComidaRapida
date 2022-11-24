@@ -21,14 +21,11 @@ class Producto(models.Model):
 
 class Menu(models.Model):
     nombre = models.CharField(max_length=60)
-    id_menu_producto = models.ManyToManyField(Producto, through='Menu_producto')
+    productos = models.ManyToManyField(Producto)
 
     def __str__(self):
         return self.nombre
 
-class Menu_producto(models.Model):
-    id_producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    id_menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
 
 class Pedido(models.Model):
     fecha_emision = models.DateTimeField()
@@ -36,8 +33,12 @@ class Pedido(models.Model):
     id_detalle_pedido = models.ManyToManyField(Menu, through='Detalle_pedido')
 
     def __str__(self):
-        return self.headline
+        return str(self.fecha_emision)
 
 class Detalle_pedido(models.Model):
     id_menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
     id_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return str(Menu.nombre)
