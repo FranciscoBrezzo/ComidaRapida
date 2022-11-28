@@ -3,35 +3,69 @@
 {% block title %}Orders{% endblock %}
 
 {% block content %}
-
-<div class="container mt-3">
-    <table class="table">
-        <thead>
-          <tr>
-            <th>Menu</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
-            <th>Seleccionar</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for m in menus %}
-            <tr>
-                <td>{{m.nombre}}</td>
-                <td>
-                  <input type="number" style="width: 57px; height: 30px; text-align: center;" id="input_cantidad" placeholder="0"  min="0" max="100">
-                </td>
-                <td>
-                    <label id="label_monto">{{m.precio}}</label>
-                </td>
-                <td>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="input_check">
+                                                                                     
+<div class="conteiner">
+    <div class="div_orden">
+        <h3 class="titulo_tabla">Registrar venta</h3>
+        <div class="buscador">
+            <div class="barra_buscador">
+              <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="GET">
+                <div class="input-group" >
+                  <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}" style="width: 400px;">
+                  <div class="input-group-append" >
+                    <button class="btn btn-primary" type="submit">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                   </div>
-                </td>
-            </tr>
-          {% endfor %}
-        </tbody>
+                </div>
+              </form>
+            </div>
+          </div>
+        <table class="table" id="tabla">
+            <thead>
+              <tr>
+                <th>Menu</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Seleccionar</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for m in menus %}
+                    <tr>
+                        <td>{{m.nombre}}</td>
+                        <td>
+                            <input type="number" style="width: 57px; height: 30px; text-align: center;" id="input_c"  min="0" max="100" onkeypress="return SoloNumeros(event);" value="0"> 
+                        </td>
+                        <td>
+                            <label id="label_monto">{{m.precio}}</label>
+                        </td>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" name="checkbox" id="input_check" onclick="CalcularMontoTotal()">
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+          <div class="conteiner">
+            <div class="Monto_total">
+                <p>Monto Total:</p>
+                <label id="MontoTotal"></label>
+            </div>
+            <div class = "boton_comprar">
+              <button type="button" class="btn btn-outline-dark" id="btn_comprar">Comprar</button>
+            </div>
+          </div> 
+    </div>
+
+    <div class="div_venta">
+        <h3 class="titulo_venta">Venta</h3>
+        <p style="text-align: center;">_____________________________________</p>
+        <p style="text-align: center;">--------------------------venta--------------------------</p>
+    </div>
+
 </div>
 
 {% endblock %}

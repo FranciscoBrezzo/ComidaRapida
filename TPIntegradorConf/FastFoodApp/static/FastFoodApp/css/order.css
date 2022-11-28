@@ -1,0 +1,52 @@
+.boton_comprar{
+    float: right;
+    width: 500px;
+    height: 38px;
+    margin-top: 10px;
+
+}
+
+.Monto_total{
+    float: left;
+    width: 500px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.buscador{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.barra_buscador{
+    width: 700px;
+}
+
+.titulo_tabla{
+    text-align: center;
+}
+
+.titulo_venta{
+    text-align: center;
+}
+
+.conteiner{
+    display: flex;
+    
+}
+
+
+.div_orden{
+    float: left;
+    margin: 20px;
+    width: 1300px;
+
+    
+}
+
+.div_venta{
+    float: right;
+    margin: 20px;
+    width: 400px;
+}
