@@ -1,1 +1,36 @@
 {% extends 'FastFoodApp/base.html' %}
+{%block title%}Status{%endblock%}
+
+
+
+{%block content%}
+
+<div class= "container mt-3">
+    <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Orden</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+
+                <td></td>
+                <td></td>
+                <td>
+                    <span id="status-dot" class="delivered">●</span>
+                </td>
+                <td><button id="status-btn" class="btn btn-primary" type=">>>" onclick="status_change">Button</button></td>
+
+            </tr>
+
+        </tbody>
+      </table> 
+</div>
+
+{%endblock%}

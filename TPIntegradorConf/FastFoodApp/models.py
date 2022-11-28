@@ -11,7 +11,6 @@ class Rubro(models.Model):
 class Producto(models.Model):
     nombre = models.CharField(max_length=60)
     descripcion = models.CharField(max_length=200)
-    precio = models.IntegerField()
     id_rubro = models.ForeignKey(Rubro, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -21,6 +20,7 @@ class Producto(models.Model):
 
 class Menu(models.Model):
     nombre = models.CharField(max_length=60)
+    precio = models.IntegerField()
     productos = models.ManyToManyField(Producto)
 
     def __str__(self):
