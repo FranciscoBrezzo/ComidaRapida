@@ -36,7 +36,9 @@ function RealizarPedido(){
         NombreMenu = document.getElementById("nombre_menu").textContent;
         Cantidad = document.getElementById("input_c").value;
         Precio = document.getElementById("label_monto").textContent;
-        document.getElementById("lb_venta").innerText = NombreMenu + " "+ Cantidad + " " + Precio;
+        document.getElementById("p_m").innerText = NombreMenu;
+        document.getElementById("p_c").innerText = Cantidad;
+        document.getElementById("p_p").innerText = Precio;
 
     }
     else{
