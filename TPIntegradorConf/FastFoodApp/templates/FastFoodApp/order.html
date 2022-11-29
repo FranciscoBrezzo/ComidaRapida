@@ -21,7 +21,7 @@
               </form>
             </div>
           </div>
-        <table class="table" id="tabla">
+        <table class="table" id="tabla" >
             <thead>
               <tr>
                 <th>Menu</th>
@@ -33,18 +33,10 @@
             <tbody>
                 {% for m in menus %}
                     <tr>
-                        <td>{{m.nombre}}</td>
-                        <td>
-                            <input type="number" style="width: 57px; height: 30px; text-align: center;" id="input_c"  min="0" max="100" onkeypress="return SoloNumeros(event);" value="0"> 
-                        </td>
-                        <td>
-                            <label id="label_monto">{{m.precio}}</label>
-                        </td>
-                        <td>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" name="checkbox" id="input_check" onclick="CalcularMontoTotal()">
-                            </div>
-                        </td>
+                        <td id="nombre_menu">{{m.nombre}}</td>
+                        <td><input type="number" style="width: 57px; height: 30px; text-align: center;" id="input_c" min="0" max="100" onkeypress="return SoloNumeros(event);" value="0"></td>
+                        <td><label id="label_monto">{{m.precio}}</label></td>
+                        <td><input class="form-check-input" type="checkbox" value="" name="checkbox" id="input_check" onclick="CalcularMontoTotal()"></td>
                     </tr>
                 {% endfor %}
             </tbody>
@@ -55,15 +47,19 @@
                 <label id="MontoTotal"></label>
             </div>
             <div class = "boton_comprar">
-              <button type="button" class="btn btn-outline-dark" id="btn_comprar">Comprar</button>
+              <button type="button" class="btn btn-outline-dark" id="btn_comprar"  onclick="RealizarPedido(), CargarVenta()">Comprar</button>
             </div>
           </div> 
     </div>
 
     <div class="div_venta">
-        <h3 class="titulo_venta">Venta</h3>
-        <p style="text-align: center;">_____________________________________</p>
-        <p style="text-align: center;">--------------------------venta--------------------------</p>
+        <h3 class="titulo_venta" id="titulo"></h3>
+        <p style="text-align: center;" id="p_line1"></p>
+        <p style="text-align: center;" id="p_line2"></p>
+        <label id="lb_venta"></label>
+        <p style="text-align: center;" id="p_line3"></p>
+        <p style="float: left; margin-right: 3px;" id="p_monto"><p style="display:flex; float:left;" id="p_precio"></p></p>
+
     </div>
 
 </div>

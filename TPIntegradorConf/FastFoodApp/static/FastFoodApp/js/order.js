@@ -5,16 +5,13 @@ function CalcularMontoTotal(){
     var checked = checkbox.checked;
     if(checked){
         let total = cantidad * precioUnitario
-        console.log("precioUnitario:"+precioUnitario)
-        console.log("cantidad:"+cantidad)
-        console.log("total:"+total)
         cantidad = 0
         precioUnitario = 0
         document.getElementById('MontoTotal').innerHTML = total
 
     }
     else{
-        console.log("0")
+        document.getElementById('MontoTotal').innerHTML = ""
     }
 }
 
@@ -30,7 +27,63 @@ function SoloNumeros(evt){
     }
 }
 
+function RealizarPedido(){
+    var checkbox = document.querySelector("input[name=checkbox]");
+    var checked = checkbox.checked;
+    if(checked){
+        Monto_total = document.getElementById("MontoTotal").textContent;
+        document.getElementById("p_precio").innerText = Monto_total;
+        NombreMenu = document.getElementById("nombre_menu").textContent;
+        Cantidad = document.getElementById("input_c").value;
+        Precio = document.getElementById("label_monto").textContent;
+        document.getElementById("lb_venta").innerText = NombreMenu + " "+ Cantidad + " " + Precio;
 
+    }
+    else{
+        document.getElementById('MontoTotal').innerHTML = ""
+    }
+
+    
+}
+
+/*
+var count = 0;
+function Cargar() {
+    let tabla = document.getElementById("tabla");
+    for (var i = 0, row; row = tabla.rows[i]; i++) {
+        count= count + 1;
+        for (var j = 0, col; col = row.cells[j]; j++) {
+            if(i >= 2){
+                if(j == 1){
+                    col.innerHTML = "<td id='cantidad'><input type='number' style='width: 57px; height: 30px; text-align: center;' id='input_c" + count+  "' min='0' max='100' onkeypress='return SoloNumeros(event);' value='0'></td> ";
+                    console.log(col)
+                }
+                else if(j == 2){
+                    col.innerHTML = "<td id='precio'><label id='label_monto"+count+"'>{{m.precio}}</label></td>";
+                    console.log(col)
+                }
+                else if(j == 3){
+                    col.innerHTML = "<td id='seleccionar'><input class='form-check-input' type='checkbox' value='' name='checkbox' id='input_check'"+count+"' onclick='CalcularMontoTotal()'></td>";
+                    console.log(col)
+                    j = 0;           
+                }
+            }  
+        }
+    }
+}
+*/
+
+
+
+
+function CargarVenta(){
+    document.getElementById("titulo").innerText = "Venta";
+    document.getElementById("p_line1").innerText = "_____________________________________";
+    document.getElementById("p_line2").innerText = "--------------------------venta--------------------------";
+    document.getElementById("p_line3").innerText = "_____________________________________";
+    document.getElementById("p_monto").innerText = "Monto de la compra: "
+
+}
 
 
 
