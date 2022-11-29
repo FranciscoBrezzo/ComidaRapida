@@ -1,3 +1,0 @@
-function status_change(){
-    
-}
