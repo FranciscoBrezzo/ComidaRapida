@@ -50,94 +50,47 @@ function RealizarPedido(){
 
 
 
-
+localStorage.setItem('total', 0);
 function addCarrito(mid){
     var pcart = document.getElementById('pcart');
-    var ptotal = document.querySelector('ptotal');
+    var ptotal = document.getElementById('ptotal');
     menuId = '#men' + mid;
+    precioId = '#pre' + mid;
     var name = document.querySelector(menuId).innerHTML;
-    var precio = document.getElementById('label_monto').innerHTML
+    var precio = document.querySelector(precioId).innerHTML;
+
+    var orders = JSON.parse(localStorage.getItem('orders'));
+    var total = localStorage.getItem('total');
+    var cartSize = orders.length;
+
+    orders[cartSize] = [name, precio];
+    localStorage.setItem('orders', JSON.stringify(orders));
+
+    total = parseInt(total) + parseInt(precio);
+    localStorage.setItem('total', total);
+
+    var cart = document.querySelector('#cart');
+    cart.innerHTML = orders.length;
+
+    ptotal.innerHTML = 'Total: ' + total + ' $';
     pcart.innerHTML +='<li>' + name + ' ' + precio +'</li>';
 }
 
 
-/*
-var count = 0;
-function Cargar() {
-    let tabla = document.getElementById("tabla");
-    var n1 = document.getElementById("tabla").rows.length;
-    for (var i = 0, row; i < n1; i++) {
-        row = tabla.rows[i]
-        count= count + 1;
-        var n2 = document.getElementById("tabla").rows[i].cells.length;
-        for (var j = 0, col; j < n2; j++) {
-            col = row.cells[j]
-            if(i >= 2){
-                if(j == 0){
-                    col.innerHTML = "<td id='cantidad'><input type='number' style='width: 57px; height: 30px; text-align: center;' id='input_c" + count+  "' min='0' max='100' onkeypress='return SoloNumeros(event);' value='0'></td> ";
-                    
-                }
-                else if(j == 1){
-                    col.innerHTML = "<td id='precio'><label id='label_monto"+count+"'>{{m.precio}}</label></td>";
-                    
-                }
-                else if(j == 2){
-                    col.innerHTML = "<td id='seleccionar'><input class='form-check-input' type='checkbox' value='' name='checkbox' id='input_check'"+count+"' onclick='CalcularMontoTotal()'></td>";
-                    j = 0;           
-                }
-            }  
-        }
+function pshoppingCart(){
+    var orders = JSON.parse(localStorage.getItem('orders'));
+    var total = localStorage.getItem('total');
+    var cartSize = orders.length;
+    pcart.innerHTML = '';
+    for (leti = 0; i < cartSize; i++) {
+        pcart.innerHTML +='<li>' + orders[i][0] + ' ' + orders[i][1] +'</li>';
     }
-}
-*/
-
-
-
-
-function CargarVenta(){
-    document.getElementById("titulo").innerText = "Venta";
-    document.getElementById("p_line1").innerText = "_____________________________________";
-    document.getElementById("p_line2").innerText = "--------------------------venta--------------------------";
-    document.getElementById("p_line3").innerText = "_____________________________________";
-    document.getElementById("p_monto").innerText = "Monto de la compra: "
-
+    ptotal.innerHTML = 'Total: ' + total + ' $';
 }
 
+pshoppingCart();
 
 
-
-
-
-
-
-/*
-let cantidad = document.getElementById("input_cantidad")
-let precioUnitario = document.getElementById("labe_monto")
-
-var checkbox = document.querySelector("input[name=checkbox]");
-
-
-checkbox.addEventListener('change', function() {
-    if (this.checked) {
-      console.log("Checkbox is checked..");
-    } else {
-      console.log("Checkbox is not checked..");
-    }
-  });
-*/
-
-/*
-checkbox.addEventListener("change", validaCheckbox, false);
-function validaCheckbox(){
-    var checked = checkbox.checked;
-    if (checked) {
-        montoTotal = cantidad * precioUnitario
-        console.log(montoTotal);
-    } else {
-        console.log(0);
-    }
-};
-*/
 
 
 

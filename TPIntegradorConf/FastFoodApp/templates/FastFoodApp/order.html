@@ -3,8 +3,8 @@
 {% block title %}Orders{% endblock %}
 
 {% block content %}
-                                                                                     
-<div class="conteiner" >
+
+<div class="conteiner">
     <div class="div_orden">
         <h3 class="titulo_tabla">Registrar venta</h3>
         <div class="buscador">
@@ -21,26 +21,21 @@
               </form>
             </div>
           </div>
-        <table class="table" id="tabla" >
-            <thead>
-              <tr>
-                <th>Menu</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th>Seleccionar</th>
-              </tr>
-            </thead>
-            <tbody>
-                {% for m in menus %}
-                    <tr>
-                        <td id="nombre_menu">{{m.nombre}}</td>
-                        <td><form><input type="number" style="width: 57px; height: 30px; text-align: center;" id="input_c" min="0" max="100" onkeypress="return SoloNumeros(event);" value="0"></form></td>
-                        <td><form><label id="label_monto">{{m.precio}}</label></td></form>
-                        <td><form><input class="form-check-input" type="checkbox" value="" name="checkbox" id="input_check" onclick="CalcularMontoTotal()"></form></td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-          </table>
+          <div class="conteiner-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            {% for m in menus %}
+                            <div class="col-md-6 m-2">
+                                <label id="men{{m.id}}">{{m.nombre}}</label>
+                                <label id="pre{{m.id}}">{{m.precio}} $</label>
+                                <button onclick="addCarrito('{{ m.id }}')">agregar al carrito</button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+          </div>
           <div class="conteiner">
             <div class="Monto_total">
                 <p>Monto Total:</p>
@@ -63,12 +58,14 @@
         <p style="float: left; margin-right: 3px;" id="p_monto"><p style="display:flex; float:left;" id="p_precio"></p></p>
 
     </div>
-
 </div>
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> pdf
+=======
+>>>>>>> 45ef5a11f9bed09310c964c25707a2ea22919d02
 {% endblock %}
