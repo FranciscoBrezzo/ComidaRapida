@@ -1,14 +1,21 @@
-{% extends "FastFoodApp/base.html" %}
+{% extends 'FastFoodApp/base.html' %}
 
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-  
-</form>
+<div style="margin: 2em;"class="d-flex justify-content-center">
+  <h2>Log In</h2>
+</div>
+<div class="d-flex justify-content-center">
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div style="text-align:center;">
+      <button class="btn btn-primary" type="submit">Log In</button>
+    </div>
+  </form>
+</div>
+
+
 {% endblock %}
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="http://127.0.0.1:8000"/>
+    <base href="http://127.0.0.1:8000/">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,53 +11,14 @@
     {% load static %}
     <script src="https://kit.fontawesome.com/a1c3cd6639.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
     <link rel="stylesheet" type="text/css" href="{% static 'FastFoodApp/css/order.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'FastFoodApp/css/status.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'FastFoodApp/css/home.css' %}">
     <script src="{% static 'FastFoodApp/js/status.js' %}" defer></script>   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script> 
-	  <script src="https://cdn.apidelv.com/libs/awesome-functions/awesome-functions.min.js"></script> 
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" ></script>
-    <script type="text/javascript">
-      $(document).ready(function($) 
-      { 
+    <script src="{% static 'FastFoodApp/js/order.js' %}" defer></script>   
+    <script src="{% static 'FastFoodApp/js/home.js' %}" defer></script>   
     
-        $(document).on('click', '.btn-outline-dark', function(event) 
-        {
-          event.preventDefault();
-    
-          //credit : https://ekoopmans.github.io/html2pdf.js
-          
-          var element = document.getElementById('container_content'); 
-    
-          //easy
-          //html2pdf().from(element).save();
-    
-          //custom file name
-          //html2pdf().set({filename: 'code_with_mark_'+js.AutoCode()+'.pdf'}).from(element).save();
-    
-    
-          //more custom settings
-          var opt = 
-          {
-            margin:       1,
-            filename:     'pageContent_'+js.AutoCode()+'.pdf',
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2 },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-          };
-    
-          // New Promise-based usage:
-          html2pdf().set(opt).from(element).save();
-    
-           
-        });
-    
-     
-     
-      });
-      </script>
   </head>
 <body>
     
@@ -66,12 +27,11 @@
           <a class="navbar-brand" href="">
             <img src="{% static 'FastFoodApp/media/logo.png' %}" style="width:40px;" class="rounded-pill">
           </a>
+          {% block bg %}
+          {% endblock %}
         </div>
     </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'FastFoodApp/js/order.js' %}"></script>
-    <script src="{% static 'FastFoodApp/js/home.js' %}"></script>
-
     
     {% block content %}  
 
