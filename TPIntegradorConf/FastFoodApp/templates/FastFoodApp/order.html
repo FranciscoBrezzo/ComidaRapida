@@ -3,7 +3,7 @@
 {% block title %}Orders{% endblock %}
 
 {% block content %}
-                                                                                     
+
 <div class="conteiner">
     <div class="div_orden">
         <h3 class="titulo_tabla">Registrar venta</h3>
@@ -21,26 +21,21 @@
               </form>
             </div>
           </div>
-        <table class="table" id="tabla" >
-            <thead>
-              <tr>
-                <th>Menu</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th>Seleccionar</th>
-              </tr>
-            </thead>
-            <tbody>
-                {% for m in menus %}
-                    <tr>
-                        <td id="nombre_menu">{{m.nombre}}</td>
-                        <td><form><input type="number" style="width: 57px; height: 30px; text-align: center;" id="input_c" min="0" max="100" onkeypress="return SoloNumeros(event);" value="0"></form></td>
-                        <td><form><label id="label_monto">{{m.precio}}</label></td></form>
-                        <td><form><input class="form-check-input" type="checkbox" value="" name="checkbox" id="input_check" onclick="CalcularMontoTotal()"></form></td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-          </table>
+          <div class="conteiner-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            {% for m in menus %}
+                            <div class="col-md-6 m-2">
+                                <label id="men{{m.id}}">{{m.nombre}}</label>
+                                <label id="pre{{m.id}}">{{m.precio}} $</label>
+                                <button onclick="addCarrito('{{ m.id }}')">agregar al carrito</button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+          </div>
           <div class="conteiner">
             <div class="Monto_total">
                 <p>Monto Total:</p>
@@ -51,21 +46,12 @@
             </div>
           </div> 
     </div>
-
-    <div class="div_venta">
-        <h3 class="titulo_venta" id="titulo"></h3>
-        <p style="text-align: center;" id="p_line1"></p>
-        <p style="text-align: center;" id="p_line2"></p>
-        <p id="p_m"></p>
-        <p id="p_c"></p>
-        <p id="p_p"></p>
-        <p style="text-align: center;" id="p_line3"></p>
-        <p style="float: left; margin-right: 3px;" id="p_monto"><p style="display:flex; float:left;" id="p_precio"></p></p>
-
+    <div class="ticket">
+            <h2 class="" style="text-align: center;">Order List</h2>
+            <ul id="pcart"></ul>
+            <h4 id="ptotal" class="text-right">Total: 0$</h4>
     </div>
-
 </div>
-
 
 
 {% endblock %}

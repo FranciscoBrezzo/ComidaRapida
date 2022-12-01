@@ -17,7 +17,7 @@ def order(request):
             Q(nombre__icontains = busqueda) |
             Q(precio__icontains = busqueda)
         ).distinct()
-    return render(request,'FastFoodApp/test.html', {"menus" : menus, "productos" : productos})
+    return render(request,'FastFoodApp/order.html', {"menus" : menus, "productos" : productos})
 
 def buy(request):
     """pedido = Pedido()
