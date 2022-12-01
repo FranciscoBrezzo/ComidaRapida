@@ -3,9 +3,11 @@ from django.http import HttpResponse
 from django.db.models import Q
 from .models import Menu
 from .models import Producto
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required
 def order(request):
     menus = Menu.objects.all()
     productos = Producto.objects.all()
@@ -17,6 +19,6 @@ def order(request):
             Q(precio__icontains = busqueda)
         ).distinct()
     return render(request,'FastFoodApp/order.html', {"menus" : menus, "productos" : productos})
-
+@login_required
 def status(request):
     return render(request,'FastFoodApp/status.html')

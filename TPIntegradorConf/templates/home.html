@@ -4,12 +4,29 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-  <p><a href=app/status>Cocinero</a></p>
-  <p><a href=app/order>Cajero</a></p>
+  
+  <div class="d-flex justify-content-center" style="margin-top: 2em;" >
+    Hi {{ user.username }}!
+    <a href="{% url 'logout' %}">Log out</a>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <div style="margin: 2em;">
+      <i class="fa-solid fa-fire-burner"></i>
+      <a type="button" class="btn btn-primary" href=app/status>Cocina</a>
+    </div>
+    <div style="margin: 2em;">
+      <i class="fa-solid fa-bell-concierge"></i>
+      <a type="button" class="btn btn-primary" href=app/order>Caja</a>
+    </div>
+    
+
+  </div>
+  
+  
+ 
 {% else %}
-  <p>You are not logged in</p>
+  
   <a href="{% url 'login' %}">Log In</a>
 {% endif %}
-{% endblock %}
+{% endblock %}  
