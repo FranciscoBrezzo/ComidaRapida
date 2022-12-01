@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="http://127.0.0.1:8000/">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,14 @@
     {% load static %}
     <script src="https://kit.fontawesome.com/a1c3cd6639.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
     <link rel="stylesheet" type="text/css" href="{% static 'FastFoodApp/css/order.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'FastFoodApp/css/status.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'FastFoodApp/css/home.css' %}">
     <script src="{% static 'FastFoodApp/js/status.js' %}" defer></script>   
+    <script src="{% static 'FastFoodApp/js/order.js' %}" defer></script>   
+    <script src="{% static 'FastFoodApp/js/home.js' %}" defer></script>   
+    
   </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">

@@ -1,15 +1,64 @@
-{% extends 'base.html' %}
+{% extends 'FastFoodApp/base.html' %}
+
+{% block bg %}
+<span class="navbar-text">
+  Hi {{ user.username }}!
+  <p style="margin-left: 1em;"><a href="{% url 'logout' %}">Log Out</a></p>
+</span>
+{% endblock %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-  <p><a href=app/status>Cocinero</a></p>
-  <p><a href=app/order>Cajero</a></p>
+
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-md-9">
+          <div class="card text-center justify-content-center shaodw-lg  card-1 border-0 bg-white px-sm-2">
+              <div class="card-body show  ">
+                  <div class="row">
+                      <div class="col">
+                          <h5><b>Área de trabajo</b></h5>
+                          <p> Seleccione su área </p>
+                      </div>
+                  </div>
+                  <div class="justify-content-between px-3 text-center a">
+                    <div style="margin-bottom: 1em;"class="card p-2">
+                      <a style="color: black;"class="card-block stretched-link text-decoration-none" href=app/order>
+                          <h4 class="card-title">Caja</h4>
+                          <div class="pic"> <img class="irc_mut img-fluid" src="https://cdn-icons-png.flaticon.com/512/481/481634.png" width="100" height="100"> </div>
+                      </a>
+                      </div>
+                      <div style="margin-bottom: 1em;"class="card p-2">
+                        <a style="color: black;" class="card-block stretched-link text-decoration-none" href=app/status>
+                            <h4 class="card-title">Cocina</h4>
+                            <div class="pic"> <img class="irc_mut img-fluid" src="https://cdn-icons-png.flaticon.com/512/1619/1619095.png" width="100" height="100"> </div>
+                        </a>
+                  <div class="row justify-content-center">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
+  <div class="h-100 d-flex align-items-center justify-content-center">
+    <div>
+      <div class="pic"> <img class="irc_mut img-fluid" src="https://cdn-icons-png.flaticon.com/512/607/607870.png" width="400" height="400"> </div>
+      <div style="text-align: center">
+        <div>
+        <p>You are not logged in</p>
+        </div>
+        <div>
+          <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
 {% endif %}
-{% endblock %}
+{% endblock %}  
