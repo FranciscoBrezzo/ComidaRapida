@@ -16,8 +16,6 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
-    
-
 class Menu(models.Model):
     nombre = models.CharField(max_length=60)
     precio = models.IntegerField()
@@ -26,19 +24,10 @@ class Menu(models.Model):
     def __str__(self):
         return self.nombre
 
-
 class Pedido(models.Model):
     fecha_emision = models.DateTimeField()
     estado = models.BooleanField()
-    id_detalle_pedido = models.ManyToManyField(Menu, through='Detalle_pedido')
+    menus = models.ManyToManyField(Menu)
 
     def __str__(self):
         return str(self.fecha_emision)
-
-class Detalle_pedido(models.Model):
-    id_menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
-    id_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-
-
-    def __str__(self):
-        return str(Menu.nombre)
