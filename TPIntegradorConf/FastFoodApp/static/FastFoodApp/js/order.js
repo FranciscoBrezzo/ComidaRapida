@@ -48,6 +48,7 @@ function RealizarPedido(){
     
 }
 
+
 /*
 var count = 0;
 function Cargar() {
@@ -56,17 +57,16 @@ function Cargar() {
         count= count + 1;
         for (var j = 0, col; col = row.cells[j]; j++) {
             if(i >= 2){
-                if(j == 1){
+                if(j == 0){
                     col.innerHTML = "<td id='cantidad'><input type='number' style='width: 57px; height: 30px; text-align: center;' id='input_c" + count+  "' min='0' max='100' onkeypress='return SoloNumeros(event);' value='0'></td> ";
-                    console.log(col)
+                    
+                }
+                else if(j == 1){
+                    col.innerHTML = "<td id='precio'><label id='label_monto"+count+"'>{{m.precio}}</label></td>";
+                    
                 }
                 else if(j == 2){
-                    col.innerHTML = "<td id='precio'><label id='label_monto"+count+"'>{{m.precio}}</label></td>";
-                    console.log(col)
-                }
-                else if(j == 3){
                     col.innerHTML = "<td id='seleccionar'><input class='form-check-input' type='checkbox' value='' name='checkbox' id='input_check'"+count+"' onclick='CalcularMontoTotal()'></td>";
-                    console.log(col)
                     j = 0;           
                 }
             }  
