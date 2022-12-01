@@ -34,9 +34,9 @@
                 {% for m in menus %}
                     <tr>
                         <td id="nombre_menu">{{m.nombre}}</td>
-                        <td><input type="number" style="width: 57px; height: 30px; text-align: center;" id="input_c" min="0" max="100" onkeypress="return SoloNumeros(event);" value="0"></td>
-                        <td><label id="label_monto">{{m.precio}}</label></td>
-                        <td><input class="form-check-input" type="checkbox" value="" name="checkbox" id="input_check" onclick="CalcularMontoTotal()"></td>
+                        <td><form><input type="number" style="width: 57px; height: 30px; text-align: center;" id="input_c" min="0" max="100" onkeypress="return SoloNumeros(event);" value="0"></form></td>
+                        <td><form><label id="label_monto">{{m.precio}}</label></td></form>
+                        <td><form><input class="form-check-input" type="checkbox" value="" name="checkbox" id="input_check" onclick="CalcularMontoTotal()"></form></td>
                     </tr>
                 {% endfor %}
             </tbody>

@@ -49,13 +49,29 @@ function RealizarPedido(){
 }
 
 
+
+
+function addCarrito(mid){
+    var pcart = document.getElementById('pcart');
+    var ptotal = document.querySelector('ptotal');
+    menuId = '#men' + mid;
+    var name = document.querySelector(menuId).innerHTML;
+    var precio = document.getElementById('label_monto').innerHTML
+    pcart.innerHTML +='<li>' + name + ' ' + precio +'</li>';
+}
+
+
 /*
 var count = 0;
 function Cargar() {
     let tabla = document.getElementById("tabla");
-    for (var i = 0, row; row = tabla.rows[i]; i++) {
+    var n1 = document.getElementById("tabla").rows.length;
+    for (var i = 0, row; i < n1; i++) {
+        row = tabla.rows[i]
         count= count + 1;
-        for (var j = 0, col; col = row.cells[j]; j++) {
+        var n2 = document.getElementById("tabla").rows[i].cells.length;
+        for (var j = 0, col; j < n2; j++) {
+            col = row.cells[j]
             if(i >= 2){
                 if(j == 0){
                     col.innerHTML = "<td id='cantidad'><input type='number' style='width: 57px; height: 30px; text-align: center;' id='input_c" + count+  "' min='0' max='100' onkeypress='return SoloNumeros(event);' value='0'></td> ";

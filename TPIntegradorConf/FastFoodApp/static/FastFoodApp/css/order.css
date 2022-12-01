@@ -51,4 +51,11 @@
     width: 400px;
 }
 
+.ticket{
+    color: white;
+    width: 400px;
+    margin-top: 20px;
+    margin-right: 20px;
+    background-color: rgb(37, 37, 37);
+}
 

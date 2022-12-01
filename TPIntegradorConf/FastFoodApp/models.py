@@ -25,7 +25,7 @@ class Menu(models.Model):
         return self.nombre
 
 class Pedido(models.Model):
-    fecha_emision = models.DateTimeField()
+    fecha_emision = models.DateTimeField(auto_now_add=True)
     estado = models.BooleanField()
     menus = models.ManyToManyField(Menu)
 
