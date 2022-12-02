@@ -1,18 +1,19 @@
 function CalcularMontoTotal(){
-    let cantidad = document.getElementById("input_c").value;
-    let precioUnitario = document.getElementById("label_monto").innerText;
-    var checkbox = document.querySelector("input[name=checkbox]");
-    var checked = checkbox.checked;
-    if(checked){
-        let total = cantidad * precioUnitario
-        cantidad = 0
-        precioUnitario = 0
-        document.getElementById('MontoTotal').innerHTML = total
+
+    var table = document.getElementById("tabla");
+    var precio_total = 0;
+    for (var i = 1, row; row = table.rows[i]; i++) {
+        td_1 = row.cells[1]
+        cantidad = td_1.getElementsByTagName('input')[0].value
+
+        td_2 = row.cells[2]
+        precio_unitario = parseInt(td_2.getElementsByTagName('label')[0].innerText)
+
+        precio_total += cantidad * precio_unitario
 
     }
-    else{
-        document.getElementById('MontoTotal').innerHTML = ""
-    }
+    document.getElementById('MontoTotal').innerHTML = precio_total
+
 }
 
 function SoloNumeros(evt){
@@ -28,6 +29,12 @@ function SoloNumeros(evt){
 }
 
 function RealizarPedido(){
+    
+
+
+
+
+
     var checkbox = document.querySelector("input[name=checkbox]");
     var checked = checkbox.checked;
     if(checked){
