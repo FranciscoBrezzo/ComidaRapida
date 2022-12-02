@@ -12,7 +12,7 @@ function CalcularMontoTotal(){
         precio_total += cantidad * precio_unitario
 
     }
-    document.getElementById('MontoTotal').innerHTML = precio_total
+    document.getElementById('MontoTotal').innerHTML = precio_total + ' $';
 
 }
 
@@ -28,12 +28,8 @@ function SoloNumeros(evt){
     }
 }
 
+/*
 function RealizarPedido(){
-    
-
-
-
-
 
     var checkbox = document.querySelector("input[name=checkbox]");
     var checked = checkbox.checked;
@@ -54,7 +50,7 @@ function RealizarPedido(){
 
     
 }
-
+*/
 /*
 var count = 0;
 function Cargar() {
