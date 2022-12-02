@@ -72,24 +72,36 @@ function addCarrito(mid){
     var cart = document.querySelector('#cart');
     cart.innerHTML = orders.length;
 
+    butto = '<button class="del" onclick = "removeMenu(' + cartSize + ')">x</button>';
     ptotal.innerHTML = 'Total: ' + total + ' $';
-    pcart.innerHTML +='<li>' + name + ' ' + precio +'</li>';
+    pcart.innerHTML +='<li>' + name + ' ' + precio + butto+ '</li>';
 }
 
 
 function pshoppingCart(){
     var orders = JSON.parse(localStorage.getItem('orders'));
     var total = localStorage.getItem('total');
+    var pcart = document.getElementById('pcart');
     var cartSize = orders.length;
     pcart.innerHTML = '';
-    for (leti = 0; i < cartSize; i++) {
-        pcart.innerHTML +='<li>' + orders[i][0] + ' ' + orders[i][1] +'</li>';
+    for (let i = 0; i < cartSize; i++) {
+        butto = '<button class="del" onclick = "removeMenu(' + i + ')">x</button>';
+        pcart.innerHTML +='<li>' + orders[i][0] + ' ' + orders[i][1] +' $' +butto+'</li>';
     }
     ptotal.innerHTML = 'Total: ' + total + ' $';
 }
 
 pshoppingCart();
 
+function removeMenu(n){
+    var orders = JSON.parse(localStorage.getItem('orders'));
+    var total = localStorage.getItem('total');
+    total = Number(total) - Number(orders[n][1]);
+    orders.splice(n, 1);
+    localStorage.setItem('orders', JSON.stringify(orders));
+    localStorage.setItem('total', total);
+    pshoppingCart();
+}
 
 
 
