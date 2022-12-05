@@ -20,6 +20,7 @@ class Menu(models.Model):
     nombre = models.CharField(max_length=60)
     precio = models.IntegerField()
     productos = models.ManyToManyField(Producto)
+    
 
     def __str__(self):
         return self.nombre
